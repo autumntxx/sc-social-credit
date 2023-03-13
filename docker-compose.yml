@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  server:
+    build: ./server
+    environment:
+      - sctoken=${sctoken}
+      - DATABASE_URL=mysql://root:${sctoken}@mysql:3306/socialcredit
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=${sctoken}
+      - MYSQL_DATABASE=socialcredit
+    volumes:
+      - socialcreditdata:/var/lib/mysql
+    ports:
+      - ${pubport}:3306
+
+volumes:
+  socialcreditdata:

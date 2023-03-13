@@ -1,0 +1,22 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model players {
+  uuid String @id @unique
+  credit Int @default(1000)
+  online_total Int @default(0)
+  online_afk Int @default(0)
+  online_latest Int
+  chat_messages Int @default(0)
+  payments Int @default(0)
+}
