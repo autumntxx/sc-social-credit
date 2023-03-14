@@ -6,6 +6,7 @@ services:
     environment:
       - sctoken=${sctoken}
       - DATABASE_URL=mysql://root:${sctoken}@mysql:3306/socialcredit
+    restart: unless-stopped
   mysql:
     image: mysql:latest
     environment:
@@ -15,6 +16,7 @@ services:
       - socialcreditdata:/var/lib/mysql
     ports:
       - ${pubport}:3306
+    restart: unless-stopped
 
 volumes:
   socialcreditdata:
