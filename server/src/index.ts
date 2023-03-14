@@ -2,11 +2,12 @@ import { PrismaClient } from '@prisma/client';
 import { Client } from 'switchchat';
 import { ChatboxCommand } from 'switchchat/types/events/ChatboxCommand';
 import creditCommand from './creditcommand';
-import './checks';
-import './chatlogger';
 
 export const db = new PrismaClient();
 export const chatclient = new Client(process.env.sctoken);
+
+import './checks';
+import './chatlogger';
 
 chatclient.on('command', async (data: ChatboxCommand) => {
     if (data.command == 'credit' || data.command == 'socialcredit') {
