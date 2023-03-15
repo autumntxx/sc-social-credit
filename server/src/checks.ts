@@ -38,6 +38,7 @@ setInterval(async () => {
                     data: {
                         online_total: record.online_total + 1,
                         online_afk: record.online_afk + ((playerMoveDistance <= 5) ? 1 : 0),
+                        online_latest: Math.floor(Date.now() / 1000),
                     },
                 });
             } else {
@@ -50,6 +51,7 @@ setInterval(async () => {
                         online_afk: 0,
                         chat_messages: 0,
                         credit: record.credit + ((record.online_afk / record.online_total < .5) ? 1 : -1) + ((record.chat_messages >= 6) ? 2 : -2),
+                        online_latest: Math.floor(Date.now() / 1000),
                     },
                 });
             };

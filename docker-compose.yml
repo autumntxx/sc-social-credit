@@ -7,6 +7,8 @@ services:
       - sctoken=${sctoken}
       - DATABASE_URL=mysql://root:${sctoken}@mysql:3306/socialcredit
     restart: unless-stopped
+    ports:
+      - ${apiport}:3000
   mysql:
     image: mysql:latest
     environment:
