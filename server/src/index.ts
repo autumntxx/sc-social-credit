@@ -8,6 +8,7 @@ export const chatclient = new Client(process.env.sctoken);
 
 import './checks';
 import './chatlogger';
+import './api';
 
 chatclient.on('command', async (data: ChatboxCommand) => {
     if (data.command == 'credit' || data.command == 'socialcredit') {
