@@ -1,4 +1,4 @@
-# sc-socal-credit
+# sc-social-credit
 Social credit system for SwitchCraft
 
 Accessible via `\credit`!
